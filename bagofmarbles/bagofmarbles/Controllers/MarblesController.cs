@@ -1,4 +1,5 @@
-﻿using bagofmarbles.Models;
+﻿using bagofmarbles.DataContext;
+using bagofmarbles.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,15 @@ namespace bagofmarbles.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
-            return Ok(new { Hello = "world" });
+            return Ok(new MarbleContext().Marbles.ToList());
         }
 
         [HttpPost]
         public IHttpActionResult AddMarble(Marble marble)
         {
-            marble.Id = new Random().Next(0, 100);
-            marble.Color = "red";
+            var db = new MarbleContext();
+            db.Marbles.Add(marble);
+            db.SaveChanges();
             return Ok(marble);
         }
     }
