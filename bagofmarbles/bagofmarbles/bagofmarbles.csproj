@@ -172,6 +172,10 @@
     <Compile Include="Migrations\201704252003136_marbleTable.Designer.cs">
       <DependentUpon>201704252003136_marbleTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704252056171_deletedName.cs" />
+    <Compile Include="Migrations\201704252056171_deletedName.Designer.cs">
+      <DependentUpon>201704252056171_deletedName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Marble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -244,6 +248,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704252003136_marbleTable.resx">
       <DependentUpon>201704252003136_marbleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704252056171_deletedName.resx">
+      <DependentUpon>201704252056171_deletedName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

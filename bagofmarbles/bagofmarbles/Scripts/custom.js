@@ -1,6 +1,7 @@
-﻿let doSomething = () => {
-    let _fullName = $("name").val();
-    $("#welcomeMessage").html(_fullName);
+﻿
+let addToList = (data) => {
+    $("#marbleList")
+        .append($("<li>").html(data.name));
 }
 
 let talkToServer = () => {
@@ -16,7 +17,8 @@ let talkToServer = () => {
         data: JSON.stringify(newMarble),
         type: "POST",
         success: (data) => {
-            $("#marbleList").append($("<li>").html(data.Name));
+            addToList(data);
+
         },
         error: (data) => {
             console.log("oops", data)
@@ -26,3 +28,18 @@ let talkToServer = () => {
         }
     });
 }
+
+let loadMarbles = () => {
+    //pull marbles from api
+    //add to the list
+    $.ajax({
+        url: "/api/marbles",
+        dataType: "json",
+        success: (data) => {
+            data.map((item) => { addToList(item);})
+
+        }
+    })
+}
+
+loadMarbles();
