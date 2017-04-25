@@ -1,13 +1,13 @@
 ﻿
 let addToList = (data) => {
     $("#marbleList")
-        .append($("<li>").html(data.name));
+        .append($("<li>").html(data.color));
 }
 
 let talkToServer = () => {
 
     let newMarble = {
-        name: $("#newMarble").val()
+        color: $("#newMarbleColor").val()
     };
 
     $.ajax({
